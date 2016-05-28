@@ -1,2 +1,2 @@
 # codility
-codility demo test
+codility demo tests
