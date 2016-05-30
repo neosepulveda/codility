@@ -1,0 +1,29 @@
+# you can write to stdout for debugging purposes, e.g.
+# puts "this is a debug message"
+
+def solution(a)
+  # write your code in Ruby 2.2
+  
+  n = a.size
+  min_avg = (a[0] + a[1])/2.0
+  position = 0
+  
+  return 0 if n == 2
+  
+  for i in 2..n-1 do
+  	t1 = (a[i-1] + a[i]) / 2.0
+  	t2 = (a[i-2] + a[i-1] + a[i]) / 3.0
+  	
+  	if t1 < min_avg
+  		position = i - 1
+  		min_avg = t1
+  	end
+  	
+  	if t2 < min_avg
+  		position = i - 2
+  		min_avg = t2
+  	end
+  end
+  
+  return position  
+end
