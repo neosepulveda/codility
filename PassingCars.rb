@@ -1,19 +1,17 @@
-def passing_cars(a)
-  n = a.size
-  passing_cars = 0
+# you can write to stdout for debugging purposes, e.g.
+# puts "this is a debug message"
 
-  suffix_sums = Array.new(n + 1, 0)
-
-  a.reverse.each_with_index do |v, i|
-    suffix_sums[i + 1] = suffix_sums[i] + v
-  end
-  suffix_sums.reverse!
-
-  a.each_with_index do |car, i|
-    if car == 0
-      passing_cars += suffix_sums[i]
-    end
-  end
-
-  passing_cars > 1_000_000_000 ? -1 : passing_cars
+def solution(a)
+  # write your code in Ruby 2.2
+  
+  counter = 0
+	total = 0
+	
+	a.each do |car|
+		car == 0 ? counter += 1 : total += counter
+	end
+	
+	return total > 1_000_000_000 ? -1 : total
 end
+
+#THANKS MAIO FOR FINDING A SIMPLE SOLUTION
